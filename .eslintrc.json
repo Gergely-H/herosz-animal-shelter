@@ -1,3 +1,20 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": [
+    "eslint:recommended",
+    "plugin:import/recommended",
+    "plugin:@typescript-eslint/strict-type-checked",
+    "plugin:@typescript-eslint/stylistic-type-checked",
+    "plugin:react/all",
+    "plugin:react-hooks/recommended",
+    "next/core-web-vitals",
+    /**
+     * Prettier plugin must be at the last to make sure it disables specific eslint rules.
+     * Source: https://www.npmjs.com/package/eslint-plugin-prettier#user-content-recommended-configuration
+     */
+    "plugin:prettier/recommended"
+  ],
+  "parserOptions": {
+    "project": true
+  },
+  "root": true
 }
