@@ -109,10 +109,6 @@
     "lines-around-comment": "error",
     "no-restricted-syntax": [
       "error",
-      {
-        "selector": "ExportNamedDeclaration",
-        "message": "Inline exports are required."
-      },
       /**
        * Allow arrow functions only to unify coding style and avoid the old function fallpits.
        * E.g. not binding properly the this keyword, using the arguments keyword, relying on hoisting.
@@ -168,8 +164,6 @@
     "import/no-self-import": "error",
     "import/no-useless-path-segments": "error",
     "import/no-relative-packages": "error",
-    "import/exports-last": "error",
-    "import/group-exports": "error",
     "import/first": "error",
     "import/newline-after-import": "error",
     "import/no-anonymous-default-export": "error",
@@ -250,10 +244,37 @@
     "@typescript-eslint/method-signature-style": "error",
     "@typescript-eslint/naming-convention": [
       "error",
+      /**
+       * Default:
+       */
       {
         "selector": ["default"],
         "format": ["StrictPascalCase"]
       },
+      /**
+       * Variables:
+       */
+      {
+        "selector": [
+          "variable",
+          "parameter",
+          "property",
+          "parameterProperty",
+          "accessor"
+        ],
+        "format": ["strictCamelCase"]
+      },
+      /**
+       * Global variables:
+       */
+      {
+        "selector": ["variable"],
+        "modifiers": ["global", "const"],
+        "format": ["UPPER_CASE", "strictCamelCase"]
+      },
+      /**
+       * Booleans:
+       */
       {
         "selector": [
           "variable",
@@ -266,6 +287,9 @@
         "format": ["StrictPascalCase"],
         "prefix": ["is", "should", "has", "can", "did", "will"]
       },
+      /**
+       * Global booleans:
+       */
       {
         "selector": ["variable"],
         "types": ["boolean"],
@@ -273,19 +297,23 @@
         "format": ["UPPER_CASE"],
         "prefix": ["IS_", "SHOULD_", "HAS_", "CAN_", "DID_", "WILL_"]
       },
+      /**
+       * Types:
+       */
       {
-        "selector": ["variable"],
-        "modifiers": ["global", "const"],
-        "format": ["UPPER_CASE"]
-      },
-      {
-        "selector": ["enumMember", "typeParameter", "typeLike"],
+        "selector": ["enumMember", "typeLike"],
         "format": ["StrictPascalCase"]
       },
+      /**
+       * Enums:
+       */
       {
         "selector": ["enum"],
         "format": ["UPPER_CASE"]
       },
+      /**
+       * Functions:
+       */
       {
         "selector": ["variable"],
         "types": ["function"],
@@ -396,8 +424,7 @@
         "blankLine": "always",
         "prev": ["block-like", "interface", "type"],
         "next": "*"
-      },
-      { "blankLine": "never", "prev": "export", "next": "export" }
+      }
     ]
   }
 }
