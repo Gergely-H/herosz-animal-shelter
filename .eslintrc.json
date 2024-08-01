@@ -141,6 +141,31 @@
         "message": "Method declarations are not allowed. Use arrow functions instead."
       }
     ],
+    "no-restricted-imports": [
+      "error",
+      {
+        "paths": [
+          {
+            "name": "react",
+            "importNames": ["default"],
+            "message": "Please import directly what is needed from react, e.g.: import type { ComponentProps } from 'react'; or import { memo } from 'react';"
+          }
+        ]
+      }
+    ],
+    "@typescript-eslint/ban-types": [
+      "error",
+      {
+        "types": {
+          "React.FC": "Use inline prop types. Useless and has some drawbacks, see https://github.com/facebook/create-react-app/pull/8177",
+          "React.FunctionComponent": "Use inline prop types. Useless and has some drawbacks, see https://github.com/facebook/create-react-app/pull/8177",
+          "React.FunctionalComponent": "Use inline prop types. Preact specific, useless and has some drawbacks, see https://github.com/facebook/create-react-app/pull/8177",
+          "FC": "Use inline prop types. Useless and has some drawbacks, see https://github.com/facebook/create-react-app/pull/8177",
+          "FunctionComponent": "Use inline prop types. Useless and has some drawbacks, see https://github.com/facebook/create-react-app/pull/8177",
+          "FunctionalComponent": "Use inline prop types. Preact specific, useless and has some drawbacks, see https://github.com/facebook/create-react-app/pull/8177"
+        }
+      }
+    ],
     /**
      * The "operator-linebreak" rule would force linebreaks before the operators
      * but it conflicts with an uneditable option of prettier.
@@ -237,6 +262,7 @@
     ],
     "react-hooks/exhaustive-deps": "error",
     "react/forbid-component-props": "off",
+    "react/jsx-props-no-spreading": ["error", { "exceptions": ["NextImage"] }],
 
     /**
      **************************************************************************
@@ -370,7 +396,6 @@
     ],
     "@typescript-eslint/no-redundant-type-constituents": "error",
     "@typescript-eslint/no-require-imports": "error",
-    "@typescript-eslint/no-type-alias": "error",
     "@typescript-eslint/consistent-type-exports": [
       "error",
       {
@@ -378,6 +403,7 @@
       }
     ],
     "@typescript-eslint/consistent-type-imports": "error",
+    "@typescript-eslint/consistent-type-definitions": ["error", "type"],
     "@typescript-eslint/no-unnecessary-qualifier": "error",
     "@typescript-eslint/no-useless-empty-export": "error",
     "@typescript-eslint/promise-function-async": "error",
