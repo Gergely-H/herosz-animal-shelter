@@ -149,6 +149,11 @@
             "name": "react",
             "importNames": ["default"],
             "message": "Please import directly what is needed from react, e.g.: import type { ComponentProps } from 'react'; or import { memo } from 'react';"
+          },
+          {
+            "name": "next/image",
+            "importNames": ["default"],
+            "message": "Do not use Next Image component. Use the custom common Image component."
           }
         ]
       }
