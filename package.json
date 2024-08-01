@@ -2,11 +2,18 @@
   "name": "herosz-animal-shelter",
   "version": "0.1.0",
   "private": true,
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,md,mdx}": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prepare": "husky"
   },
   "dependencies": {
     "next": "14.2.5",
@@ -28,6 +35,8 @@
     "eslint-plugin-no-relative-import-paths": "^1.5.5",
     "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-tailwindcss": "^3.17.4",
+    "husky": "^9.1.4",
+    "lint-staged": "^15.2.7",
     "postcss": "^8",
     "prettier": "^3.3.3",
     "tailwindcss": "^3.4.1",
