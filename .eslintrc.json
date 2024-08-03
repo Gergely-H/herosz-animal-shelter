@@ -225,7 +225,13 @@
      * Prettier plugin rules:
      **************************************************************************
      */
-    "prettier/prettier": ["error", { "singleQuote": true }],
+    "prettier/prettier": [
+      "error",
+      {
+        "singleQuote": true,
+        "jsxSingleQuote": true
+      }
+    ],
 
     /**
      **************************************************************************
@@ -268,6 +274,8 @@
     "react-hooks/exhaustive-deps": "error",
     "react/forbid-component-props": "off",
     "react/jsx-props-no-spreading": ["error", { "exceptions": ["NextImage"] }],
+    "react/jsx-max-depth": ["error", { "max": 4 }],
+    "react/prefer-read-only-props": "off",
 
     /**
      **************************************************************************
@@ -300,7 +308,7 @@
        */
       {
         "selector": ["default"],
-        "format": ["StrictPascalCase"]
+        "format": ["strictCamelCase", "StrictPascalCase"]
       },
       /**
        * Variables:
@@ -450,13 +458,6 @@
      */
     "no-magic-numbers": "off",
     "@typescript-eslint/no-magic-numbers": "error",
-    /**
-     * The "no-shadow" base eslint rule must be disabled as it can report incorrect errors
-     * when using "@typescript-eslint/no-shadow" rule.
-     * Source: https://typescript-eslint.io/rules/no-shadow/#how-to-use
-     */
-    "no-shadow": "off",
-    "@typescript-eslint/no-shadow": "error",
     /**
      * The "padding-line-between-statements" base eslint rule must be disabled as it can report incorrect errors
      * when using "@typescript-eslint/padding-line-between-statements" rule.
