@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "lint-staged": {
-    "*.{js,jsx,ts,tsx,md,mdx}": [
+    "*.{js,jsx,ts,tsx}": [
       "eslint --fix",
       "git add"
     ]
