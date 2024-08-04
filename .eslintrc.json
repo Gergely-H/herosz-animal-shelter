@@ -20,8 +20,9 @@
     "eslint-plugin-filename-export",
     "no-relative-import-paths"
   ],
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "project": true
+    "project": ["./tsconfig.json"]
   },
   "root": true,
   "rules": {
@@ -104,13 +105,20 @@
     "prefer-rest-params": "error",
     "prefer-spread": "error",
     "prefer-template": "error",
-    "require-await": "error",
     "spaced-comment": "error",
     "symbol-description": "error",
     "yoda": "error",
     "lines-around-comment": "error",
     "no-restricted-syntax": [
       "error",
+      {
+        "selector": "MemberExpression[object.name='React']",
+        "message": "Please import and use specific React exports instead of the namespace. Error code: 1"
+      },
+      {
+        "selector": "TSQualifiedName > Identifier[name='React']",
+        "message": "Please import and use specific React exports instead of the namespace. Error code: 2"
+      },
       /**
        * Allow arrow functions only to unify coding style and avoid the old function fallpits.
        * E.g. not binding properly the this keyword, using the arguments keyword, relying on hoisting.
@@ -118,27 +126,27 @@
        */
       {
         "selector": "MethodDefinition[kind!=constructor][value.generator=false]",
-        "message": "Function expressions are not allowed. Use arrow functions instead."
+        "message": "Function expressions are not allowed. Use arrow functions instead. Error code: 3"
       },
       {
         "selector": "PropertyDefinition[value.type=FunctionExpression][value.generator=false]",
-        "message": "Function expressions are not allowed. Use arrow functions instead."
+        "message": "Function expressions are not allowed. Use arrow functions instead. Error code: 4"
       },
       {
         "selector": "VariableDeclarator[init.type=FunctionExpression][init.generator=false]",
-        "message": "Function expressions are not allowed. Use arrow functions instead."
+        "message": "Function expressions are not allowed. Use arrow functions instead. Error code: 5"
       },
       {
         "selector": "AssignmentExpression[right.type=FunctionExpression][right.generator=false]",
-        "message": "Function expressions are not allowed. Use arrow functions instead."
+        "message": "Function expressions are not allowed. Use arrow functions instead. Error code: 6"
       },
       {
         "selector": "FunctionDeclaration[generator=false]",
-        "message": "Function declarations are not allowed. Use arrow functions instead."
+        "message": "Function declarations are not allowed. Use arrow functions instead. Error code: 7"
       },
       {
         "selector": "TSAbstractMethodDefinition[value.generator=false]",
-        "message": "Method declarations are not allowed. Use arrow functions instead."
+        "message": "Method declarations are not allowed. Use arrow functions instead. Error code: 8"
       }
     ],
     "no-restricted-imports": [
@@ -458,6 +466,13 @@
      */
     "no-magic-numbers": "off",
     "@typescript-eslint/no-magic-numbers": "error",
+    /**
+     * The "require-await" base eslint rule must be disabled as it can report incorrect errors
+     * when using "@typescript-eslint/require-await" rule.
+     * Source: https://typescript-eslint.io/rules/require-await/#how-to-use
+     */
+    "require-await": "off",
+    "@typescript-eslint/require-await": "error",
     /**
      * The "padding-line-between-statements" base eslint rule must be disabled as it can report incorrect errors
      * when using "@typescript-eslint/padding-line-between-statements" rule.
