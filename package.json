@@ -16,9 +16,11 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "i18next": "^23.12.2",
     "next": "14.2.5",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-i18next": "^15.0.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.8.0",
@@ -31,6 +33,7 @@
     "eslint-config-next": "14.2.5",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-consistent-default-export-name": "^0.0.15",
+    "eslint-plugin-eslint-comments": "^3.2.0",
     "eslint-plugin-filename-export": "^1.0.4",
     "eslint-plugin-no-relative-import-paths": "^1.5.5",
     "eslint-plugin-prettier": "^5.2.1",
