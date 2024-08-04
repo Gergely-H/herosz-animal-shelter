@@ -12,6 +12,7 @@
     "plugin:react/all",
     "plugin:react-hooks/recommended",
     "plugin:tailwindcss/recommended",
+    "plugin:eslint-comments/recommended",
     "next/core-web-vitals",
     "plugin:prettier/recommended"
   ],
@@ -230,7 +231,7 @@
 
     /**
      **************************************************************************
-     * Prettier plugin rules:
+     * prettier plugin rules:
      **************************************************************************
      */
     "prettier/prettier": [
@@ -257,7 +258,15 @@
 
     /**
      **************************************************************************
-     * React plugin rules:
+     * eslint-comments plugin rules:
+     **************************************************************************
+     */
+    "eslint-comments/no-unused-disable": "error",
+    "eslint-comments/require-description": "error",
+
+    /**
+     **************************************************************************
+     * react plugin rules:
      **************************************************************************
      */
     "react/function-component-definition": [
@@ -287,7 +296,7 @@
 
     /**
      **************************************************************************
-     * Typescript plugin rules:
+     * @typescript-eslint plugin rules:
      **************************************************************************
      */
     "@typescript-eslint/no-unused-vars": [
