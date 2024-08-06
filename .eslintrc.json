@@ -399,8 +399,10 @@
       /**
        * The "@typescript-eslint/no-unused-vars" rule allows unused variable declarations
        * that start with underscore but the "@typescript-eslint/naming-convention" rule
-       * with the "default" selector forbids naming formats other than strictCamelCase.
-       * This rule re-enables the underscore naming convention only for function parameters.
+       * with the "default" selector forbids naming formats prefixed with underscore.
+       * This rule re-enables the underscore prefix naming convention only for function parameters
+       * because sometimes it is necessary to define function parameter without using it.
+       * E.g. When we need the index of the map function but not mapped valued.
        */
       {
         "selector": "parameter",
