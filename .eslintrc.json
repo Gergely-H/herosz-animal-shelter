@@ -19,7 +19,8 @@
   "plugins": [
     "consistent-default-export-name",
     "eslint-plugin-filename-export",
-    "no-relative-import-paths"
+    "no-relative-import-paths",
+    "check-file"
   ],
   "ignorePatterns": ["*.mjs"],
   "parser": "@typescript-eslint/parser",
@@ -256,6 +257,54 @@
      **************************************************************************
      */
     "filename-export/match-named-export": "error",
+
+    /**
+     **************************************************************************
+     * check-file plugin rules:
+     **************************************************************************
+     */
+    "check-file/no-index": "error",
+    "check-file/filename-blocklist": [
+      "error",
+      {
+        "*.*.ts": "*.ts",
+        "*.*.tsx": "*.tsx"
+      }
+    ],
+    /**
+     * The following configuration of "check-file/folder-match-with-fex" rule
+     * is specific to this project file structure.
+     */
+    "check-file/folder-match-with-fex": [
+      "error",
+      {
+        "*.tsx": "src/{app,components}/**"
+      }
+    ],
+    /**
+     * The following configuration of "check-file/filename-naming-convention" rule
+     * is specific to this project file structure.
+     * kebab-case: +([a-z])*([a-z0-9])*(-+([a-z0-9]))
+     * PascalCase: [A-Z][a-zA-Z0-9]*
+     */
+    "check-file/filename-naming-convention": [
+      "error",
+      {
+        "src/app/**/*.tsx": "+([a-z])*([a-z0-9])*(-+([a-z0-9]))|[A-Z][a-zA-Z0-9]*",
+        "src/components/**/*.tsx": "PASCAL_CASE"
+      }
+    ],
+    /**
+     * The following configuration of "check-file/folder-naming-convention" rule
+     * is specific to this project file structure.
+     */
+    "check-file/folder-naming-convention": [
+      "error",
+      {
+        "src/app/**": "NEXT_JS_APP_ROUTER_CASE",
+        "src/!(app)/**": "KEBAB_CASE"
+      }
+    ],
 
     /**
      **************************************************************************
