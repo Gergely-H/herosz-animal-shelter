@@ -1,9 +1,9 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { HamburgerButton } from './components/HamburgerButton/HamburgerButton';
-import { Logo } from './components/Logo/Logo';
-import { Navbar } from './components/Navbar/Navbar';
+import { HamburgerButton } from './components/hamburger-button/HamburgerButton';
+import { Logo } from './components/logo/Logo';
+import { Navbar } from './components/navbar/Navbar';
 
 const SCROLL_EVENT = 'scroll';
 const ZERO_Y_SCROLL = 0;

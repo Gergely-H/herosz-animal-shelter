@@ -1,4 +1,4 @@
-@config "./tailwind.config.ts";
+@config "./tailwindConfig.ts";
 
 @tailwind base;
 @tailwind components;
@@ -13,8 +13,8 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 0, 0, 0;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background-start-rgb: 214, 219, 220;
+    --background-end-rgb: 214, 219, 220;
   }
 }
 
