@@ -8,6 +8,8 @@ import { Header } from './components/header/Header';
 export const generateStaticParams = () =>
   languages.map((language) => ({ language }));
 
+export type LanguageParam = ReturnType<typeof generateStaticParams>[number];
+
 const inter = Inter({ subsets: ['latin'] });
 
 const META_TITLE = 'Herosz Budapesti Állatotthon';
@@ -31,7 +33,7 @@ export const metadata: Metadata = {
 
 type RootLayoutProps = {
   children: ReactNode;
-  params: { language: string };
+  params: LanguageParam;
 };
 
 const RootLayout = ({ children, params: { language } }: RootLayoutProps) => (

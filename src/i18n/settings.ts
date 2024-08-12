@@ -1,6 +1,7 @@
-export const fallbackLng = 'en';
+export const fallbackLng = 'hu';
 
-export const languages = [fallbackLng, 'de'];
+// TODO: get these languages from single source of truth
+export const languages = [fallbackLng, 'en'] as const;
 
 export const defaultNS = 'translation';
 
