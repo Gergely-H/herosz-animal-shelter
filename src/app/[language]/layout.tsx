@@ -3,7 +3,7 @@ import { languages } from '@/i18n/settings';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import type { ReactNode } from 'react';
-import { Header } from './components/header/Header';
+import { Header } from '@/components/layout/header/Header';
 
 export const generateStaticParams = () =>
   languages.map((language) => ({ language }));
