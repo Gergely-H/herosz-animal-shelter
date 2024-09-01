@@ -1,14 +1,8 @@
+import { Header } from '@/components/layout/header/Header';
 import { Bootstrapper } from '@/components/utils/bootstrapper/Bootstrapper';
-import { languages } from '@/i18n/settings';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import type { ReactNode } from 'react';
-import { Header } from '@/components/layout/header/Header';
-
-export const generateStaticParams = () =>
-  languages.map((language) => ({ language }));
-
-export type LanguageParam = ReturnType<typeof generateStaticParams>[number];
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -33,11 +27,10 @@ export const metadata: Metadata = {
 
 type RootLayoutProps = {
   children: ReactNode;
-  params: LanguageParam;
 };
 
-const RootLayout = ({ children, params: { language } }: RootLayoutProps) => (
-  <html lang={language}>
+const RootLayout = ({ children }: RootLayoutProps) => (
+  <html>
     <Bootstrapper>
       {/* <body className={`${inter.className} overflow-y-scroll`}> // TODO: why was this of-y-s here? */}
       <body className={inter.className}>
